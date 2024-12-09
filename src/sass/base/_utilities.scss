@@ -1,0 +1,31 @@
+.flex {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* Basic Button Styling */
+button {
+  background-color: var(--color-grey-light-4); /* Blue */
+  color: var(--color-grey-dark-1);
+  font-weight: 700;
+  border: none;
+  padding: 0.8rem 1.8rem;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--color-grey-dark-1);
+  color: var(--color-grey-light-1);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+}
+
+button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--color-grey-light-4);
+}

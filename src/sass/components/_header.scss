@@ -5,12 +5,11 @@
   padding: 0rem 2rem;
   font-size: 1.8rem;
   height: 7rem;
-  background-color: #fff;
-  border-bottom: var(--line);
+  border-bottom: 1px dashed var(--color-grey-light-4);
 
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
 }
 
 ////////////////////////////////////////
@@ -50,19 +49,6 @@
 
   &__input:focus + &__button {
     background-color: var(--color-grey-light-3);
-  }
-
-  &__button {
-    border: none;
-    background-color: var(--color-grey-light-2);
-
-    &:focus {
-      outline: none;
-    }
-
-    &:active {
-      transform: translateY(2px);
-    }
   }
 }
 

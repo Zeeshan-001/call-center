@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import userImage from "../../assets/images/user.jpg";
 import logo from "../../assets/svgs/logo.svg";
-import { IoMdSearch } from "react-icons/io";
+import { RxCross2 } from "react-icons/rx";
 import { FiBell } from "react-icons/fi";
 
-function Header() {
+function Header({ onClientSearch }) {
+  const [inputValue, setInputValue] = useState("");
+
+  const handleInput = (e) => {
+    const value = e.target.value;
+    setInputValue(value);
+    onClientSearch(value);
+  };
+
   return (
     <header className="header">
       <div className="user-nav__logo">
@@ -13,16 +21,16 @@ function Header() {
         </a>
       </div>
 
+      {/* Handle Input Fron User */}
       <form action="#" className="search">
         <input
           type="text"
           className="search__input"
           placeholder="Kunden suchen"
+          value={inputValue}
+          name="name"
+          onChange={handleInput}
         />
-
-        <button className="search__button">
-          <IoMdSearch />
-        </button>
       </form>
 
       <nav className="user-nav">

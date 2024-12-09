@@ -34,7 +34,7 @@ const Sidebar = () => {
 
       <div className="sidebar-account ">
         <a className="login-button">
-          <CiLogin /> <span>Einloggen</span>
+          <CiLogin /> <span>Ausloggen</span>
         </a>
       </div>
     </div>

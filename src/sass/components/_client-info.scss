@@ -1,0 +1,71 @@
+.clientsContainer {
+  width: 100%;
+  margin-top: 7rem;
+  display: flex;
+  align-items: start;
+  align-content: space-between;
+  justify-content: space-between;
+}
+
+.searchItem {
+  input {
+    width: 100%;
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    background-color: var(--color-grey-light-2);
+    border: none;
+    outline: none;
+    padding: 1.2rem 2rem;
+    transition: 0.3s ease;
+    border-bottom: 1px solid transparent;
+  }
+
+  input:active,
+  input:focus {
+    border-bottom: 1px solid var(--color-grey-dark-3);
+  }
+}
+
+section {
+  table {
+    width: 100%;
+    font-weight: 600;
+    box-shadow: 0px 0px 2px 0px var(--color-grey-dark-2);
+    border-collapse: collapse;
+
+    th,
+    td {
+      padding: 0.8rem 1rem;
+      font-size: 1.2rem;
+      border-bottom: 1px solid var(--color-grey-light-4);
+      text-align: left;
+    }
+
+    th {
+      background-color: var(--color-grey-light-4);
+      font-weight: bold;
+      font-size: 1.2rem;
+      letter-spacing: 0.3px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    td {
+      word-wrap: break-word;
+    }
+  }
+}
+
+.kunden-info,
+.vertraege,
+.inkasso {
+  padding: 0 1rem;
+  border-radius: 5px;
+}
+
+.inkasso table tr td {
+  color: red;
+}
