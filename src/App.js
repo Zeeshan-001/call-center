@@ -1,50 +1,48 @@
-import { useEffect, useState } from "react";
-import "./App.css";
+import React, { useEffect, useState } from "react";
 import { getAllCustomers } from "./data";
 import Client from "./components/client-data/Client";
 import Header from "./components/header/Header";
 import Sidebar from "./components/sidebar/Sidebar";
-import ClientInfo from "./components/client-data/ClientInfo";
-import ClientAktivities from "./components/client-data/ClientAktivities";
-import ClientInvoiceManagement from "./components/client-data/ClientInvoiceManagement";
-import ClientVerträge from "./components/client-data/ClientVerträge";
-import DamagesInfo from "./components/client-data/DamagesInfo";
 import Cart from "./components/Cart";
 import UserProgess, {
+  UserProgressContext,
   UserProgressProvider,
 } from "./store/UserProgressProvider";
 
 function App() {
   const [client, setClient] = useState();
   const [clientsData, setClientsData] = useState([]);
-  const [clientInfoModal, setClientInfoModal] = useState(false);
+  const [clientId, setClinetID] = useState("");
+  const [modal, setmodal] = useState("");
+  const [kunden, setKunden] = useState({});
 
   useEffect(() => {
     setClientsData(getAllCustomers);
   }, []);
 
-  const handleClick = (seledType) => {
-    setClientInfoModal(!clientInfoModal);
-  };
-
   const handleClientSearch = (client) => {
     setClient(client);
+  };
+
+  const handleModelData = (modal, id) => {
+    if (modal && id) {
+      setmodal(modal);
+      setKunden(clientsData.find((client) => client.id === id));
+    } else {
+      console.alert("Kunde nicht gefunden!");
+    }
   };
 
   return (
     <UserProgressProvider>
       <div className="app">
-        {/* <ClientInfo customer={clientsData[0]} />
-      <ClientInvoiceManagement invoices={clientsData[0].inkasso} />
-      <ClientVerträge vorträge={clientsData[0].vertrage} />
-      <DamagesInfo damages={clientsData[0].schäden} /> */}
         <Sidebar />
         <div className="content">
           <Header onClientSearch={handleClientSearch} />
-          <Client onSearch={client} onClientClick={handleClick} />
+          <Client onSearch={client} onModalShow={handleModelData} />
         </div>
 
-        <Cart customer={clientsData[0]} />
+        {modal && <Cart kunde={kunden} onModal={modal} />}
       </div>
     </UserProgressProvider>
   );

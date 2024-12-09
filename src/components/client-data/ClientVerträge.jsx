@@ -1,13 +1,16 @@
-import React from "react";
-import { FaCaretDown } from "react-icons/fa6";
+import React, { useContext } from "react";
+import { RiCloseFill } from "react-icons/ri";
+import { UserProgressContext } from "../../store/UserProgressProvider";
 
 function ClientVerträge({ vorträge }) {
+  const { hideCart } = useContext(UserProgressContext);
+
   return (
     <section className="vertraege">
       <h3>
         Übersicht Verträge
-        <span>
-          <FaCaretDown />
+        <span onClick={hideCart}>
+          <RiCloseFill />
         </span>
       </h3>
       <table>
@@ -19,21 +22,19 @@ function ClientVerträge({ vorträge }) {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            {vorträge && vorträge.length > 0 ? (
-              vorträge.map((vor, index) => (
-                <tr key={index}>
-                  <td>{vor.typ}</td>
-                  <td>{vor.nummer}</td>
-                  <td>{vor.startdatum}</td>
-                </tr>
-              ))
-            ) : (
-              <tr>
-                <td>Keine Vorträge gefunden</td>
+          {vorträge && vorträge.length > 0 ? (
+            vorträge.map((vor, index) => (
+              <tr key={index}>
+                <td>{vor.typ}</td>
+                <td>{vor.nummer}</td>
+                <td>{vor.startdatum}</td>
               </tr>
-            )}
-          </tr>
+            ))
+          ) : (
+            <tr>
+              <td>Keine Vorträge gefunden</td>
+            </tr>
+          )}
         </tbody>
       </table>
     </section>

@@ -1,5 +1,5 @@
 .header {
-  width: 80%; //
+  width: 84%; //
   position: absolute; //
   right: 0; //
   padding: 0rem 2rem;
@@ -12,8 +12,7 @@
   justify-content: space-between;
 }
 
-////////////////////////////////////////
-// SEARCH
+// Header Searchbar
 .search {
   flex: 0 0 30%;
 
@@ -42,7 +41,7 @@
     }
 
     &::-webkit-input-placeholder {
-      font-weight: 100;
+      font-weight: 600;
       color: var(--color-grey-dark-2);
     }
   }
@@ -52,8 +51,7 @@
   }
 }
 
-////////////////////////////////////////
-// USER NAVIGATION
+// User Menu
 .user-nav {
   align-self: stretch;
 
@@ -81,6 +79,7 @@
     width: 14rem;
   }
 
+  // Header Notification Symbol
   &__notification {
     font-size: 0.8rem;
     height: 1.75rem;

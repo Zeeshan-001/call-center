@@ -1,13 +1,16 @@
-import React from "react";
-import { RxCalendar } from "react-icons/rx";
+import React, { useContext } from "react";
+import { RiCloseFill } from "react-icons/ri";
+import { UserProgressContext } from "../../store/UserProgressProvider";
 
 function ClientInvoiceManagement({ invoices }) {
+  const { hideCart } = useContext(UserProgressContext);
+
   return (
     <section className="inkasso">
       <h3>
         Abrechnungsübersicht
-        <span>
-          <RxCalendar />
+        <span onClick={hideCart}>
+          <RiCloseFill />
         </span>
       </h3>
 

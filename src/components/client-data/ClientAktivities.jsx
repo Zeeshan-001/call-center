@@ -6,11 +6,13 @@ const ClientAktivities = () => {
     <main className="activities-container">
       <h3>
         <span>Kontaktverlauf</span>
-        <RxCalendar />
+        <span title="Kalender">
+          <RxCalendar />
+        </span>
       </h3>
 
       <form action="#" className="searchItem">
-        <input type="text" placeholder="Aktivität Eingeben" />
+        <input type="text" placeholder="Aktivität Suchen" />
       </form>
 
       <div className="inner">
@@ -103,6 +105,56 @@ const ClientAktivities = () => {
             <div className="activity flex">
               <span>Anlage Person:</span>
               <a href="#">Max Mustermann</a>
+            </div>
+            <ul>
+              <li>
+                <span data-icon="calc_month" aria-label="Date Icon"></span>
+                <time dateTime="2024-01-12">12.01.2024</time>
+              </li>
+              <li className="components">
+                <span>TouchActive</span>
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            <div className="activity flex">
+              <span>Anlage Person:</span>
+              <a href="#">Max Mustermann</a>
+            </div>
+
+            <ul>
+              <li>
+                <span data-icon="calc_month" aria-label="Date Icon"></span>
+                <time dateTime="2024-01-12">12.01.2024</time>
+              </li>
+
+              <li className="components">
+                <span>TouchActive</span>
+              </li>
+            </ul>
+          </li>
+
+          <li className="warning">
+            <div className="activity flex">
+              <span>Schadensmeldung:</span>
+              <a href="#">SMART4001-4382391</a>
+            </div>
+            <ul>
+              <li>
+                <span data-icon="calc_month" aria-label="Date Icon"></span>
+                <time dateTime="2024-03-22">22.03.2024</time>
+              </li>
+              <li className="components">
+                <span>Kundenportal</span>
+              </li>
+            </ul>
+          </li>
+
+          <li className="danger">
+            <div className="activity flex">
+              <span>Mahnung:</span>
+              <a href="#">SMART4001-4382391</a>
             </div>
             <ul>
               <li>

@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { RiCloseFill } from "react-icons/ri";
+import { UserProgressContext } from "../../store/UserProgressProvider";
 
 const ClientInfo = ({ customer }) => {
-  console.log(customer);
+  const { hideCart } = useContext(UserProgressContext);
+
   return (
     <section className="kunden-info">
       <h3>
         Kundeninformationen
-        <span>
+        <span onClick={hideCart}>
           <RiCloseFill />
         </span>
       </h3>
@@ -58,7 +60,7 @@ const ClientInfo = ({ customer }) => {
           </tbody>
         </table>
       ) : (
-        <p>Loading...</p>
+        <p>keine Vorträge gefunden</p>
       )}
     </section>
   );

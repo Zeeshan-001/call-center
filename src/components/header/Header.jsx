@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import userImage from "../../assets/images/user.jpg";
 import logo from "../../assets/svgs/logo.svg";
-import { RxCross2 } from "react-icons/rx";
 import { FiBell } from "react-icons/fi";
 
 function Header({ onClientSearch }) {
@@ -26,7 +25,7 @@ function Header({ onClientSearch }) {
         <input
           type="text"
           className="search__input"
-          placeholder="Kunden suchen"
+          placeholder="Geben Sie den Vor- oder Nachnamen ein"
           value={inputValue}
           name="name"
           onChange={handleInput}
@@ -34,11 +33,13 @@ function Header({ onClientSearch }) {
       </form>
 
       <nav className="user-nav">
+        {/* Notification  */}
         <div className="user-nav__icon-box">
           <FiBell />
           <span className="user-nav__notification">7</span>
         </div>
 
+        {/* User Menu */}
         <div className="user-nav__user">
           <img
             src={userImage}

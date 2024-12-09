@@ -1,19 +1,14 @@
-import React, { useContext, useEffect, useState } from "react";
-import ClientInfo from "./ClientInfo";
-import ClientVerträge from "./ClientVerträge";
-import ClientInvoiceManagement from "./ClientInvoiceManagement";
-import DamagesInfo from "./DamagesInfo";
+import React, { useEffect, useState } from "react";
 import ClientAktivities from "./ClientAktivities";
 import { extractCustomerInfo } from "../../data";
 import { FaRegSadTear } from "react-icons/fa";
 import { UserProgressContext } from "./../../store/UserProgressProvider";
 
-function Client({ onSearch, onClientClick }) {
+function Client({ onSearch, onModalShow }) {
   const [customers, setCustomers] = useState([]);
   const [filteredCustomers, setFilteredCustomers] = useState([]);
 
-  const { progress, showCart, hideCart } =
-    React.useContext(UserProgressContext);
+  const { progress, showCart } = React.useContext(UserProgressContext);
 
   useEffect(() => {
     const fetchedCustomers = extractCustomerInfo();
@@ -33,10 +28,6 @@ function Client({ onSearch, onClientClick }) {
       setFilteredCustomers(customers);
     }
   }, [onSearch, customers]);
-
-  // function handleShowCart() {
-  //   UserProgessCtx.showCart();
-  // }
 
   return (
     <section className="clientsContainer">
@@ -59,17 +50,25 @@ function Client({ onSearch, onClientClick }) {
             filteredCustomers.map((customer, index) => (
               <tr key={index}>
                 <td>{customer.anrede}</td>
-                <td>{customer.vorname}</td>
+                {/* Link für customer Info */}
+                <td onClick={() => onModalShow("info", customer.id)}>
+                  <span className="clientinfoLink" onClick={showCart}>
+                    {customer.vorname}
+                  </span>
+                </td>
                 <td>{customer.nachname}</td>
                 <td>{customer.geburtsdatum}</td>
-                <td>
+                {/* Customer Agreements */}
+                <td onClick={() => onModalShow("vorträge", customer.id)}>
                   <button onClick={showCart}>Vorträge</button>
                 </td>
-                <td>
-                  <button>Schäden</button>
+                {/* Customer Damages */}
+                <td onClick={() => onModalShow("damages", customer.id)}>
+                  <button onClick={showCart}>Schäden</button>
                 </td>
-                <td>
-                  <button>Abrechnungsübersicht</button>
+                {/* Customer Invoices */}
+                <td onClick={() => onModalShow("inkasso", customer.id)}>
+                  <button onClick={showCart}>Abrechnungs</button>
                 </td>
               </tr>
             ))
